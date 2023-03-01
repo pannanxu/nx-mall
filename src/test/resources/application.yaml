@@ -1,0 +1,40 @@
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/nx_mall
+    username: root
+    password: mysql2022...
+  sql:
+    init:
+      mode: always
+      platform: mysql
+
+logging:
+  level:
+    root: info
+    net.nanxu: debug
+    io.swagger: debug
+
+springdoc:
+  api-docs:
+    path: "/swagger/v3/api-docs"
+    version: "OPENAPI_3_0"
+  swagger-ui:
+    path: "/swagger/index.html"
+#    groups-order: DESC
+#    operationsSorter: method
+  show-actuator: true
+#  enable-spring-security: true
+  group-configs:
+    - group: root
+      display-name: "Root"
+      paths-to-match: /**
+    - group: Actuator
+      display-name: "Actuator"
+      paths-to-match: /actuator/**
+
+
+app:
+  security:
+    public-key: app.pub
+    private-key: app.key
